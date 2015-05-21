@@ -46,7 +46,7 @@ var set = require('set-value');
  * @param  {Object} `obj` Original source object.
  * @param  {Object} `mask` Mask object(s) to use to pick properties off the source.
  * @return {Object} Masked object with only the properties specified in the mask
- * @api public;
+ * @api public
  */
 
 module.exports = function mask () {

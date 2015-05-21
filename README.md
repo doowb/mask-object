@@ -17,6 +17,47 @@ var maskObject = require('mask-object');
 ## API
 
 <!-- add a path or glob pattern for files with code comments to use for docs  -->
+### [mask](index.js#L52)
+
+Return only properties specified in an object mask.
+
+*Example*
+
+**Params**
+
+* `obj` **{Object}**: Original source object.    
+* `mask` **{Object}**: Mask object(s) to use to pick properties off the source.    
+* `returns` **{Object}**: Masked object with only the properties specified in the mask  
+
+**Example**
+
+```
+var contact = {
+  name: 'Brian',
+  address: {
+    street: '123 Main St.',
+    city: 'Cincinnati',
+    state: 'OH',
+    zip: '45241'
+  },
+  billing_address: {
+    street: '567 Main St.',
+    street2: 'Suite #1',
+    city: 'Cincinnati',
+    state: 'OH',
+    zip: '45241'
+  }
+};
+
+var billingAddress = mask(contact, { billing_address: 1 });
+//=> {
+//=>   street: '567 Main St.',
+//=>   street2: 'Suite #1',
+//=>   city: 'Cincinnati',
+//=>   state: 'OH',
+//=>   zip: '45241'
+//=> }
+```
 
 ## Related projects
 

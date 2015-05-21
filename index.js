@@ -32,14 +32,23 @@ var set = require('set-value');
  *   }
  * };
  *
- * var billingAddress = mask(contact, { billing_address: 1 });
+ * // pull the streets out
+ * console.log(mask(contact, {
+ *   address: {
+ *     street: 1,
+ *     street2:, 1
+ *   },
+ *   billing_address: {
+ *     street: 1,
+ *     street2: 1
+ *   }
+ * }));
+ *
  * //=> {
- * //=>   street: '567 Main St.',
- * //=>   street2: 'Suite #1',
- * //=>   city: 'Cincinnati',
- * //=>   state: 'OH',
- * //=>   zip: '45241'
+ * //=>   address: { street: '123 Main St.' },
+ * //=>   billing_address: { street: '567 Main St.', street2: 'Suite #1' }
  * //=> }
+ *
  * ```
  *
  * @name  mask

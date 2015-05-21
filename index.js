@@ -7,8 +7,47 @@
 
 'use strict';
 var stringify = require('stringify-keys');
-var get = require('get-object');
-var set = require('set-object');
+var get = require('get-value');
+var set = require('set-value');
+
+/**
+ * Return only properties specified in an object mask.
+ *
+ * *Example*
+ * ```
+ * var contact = {
+ *   name: 'Brian',
+ *   address: {
+ *     street: '123 Main St.',
+ *     city: 'Cincinnati',
+ *     state: 'OH',
+ *     zip: '45241'
+ *   },
+ *   billing_address: {
+ *     street: '567 Main St.',
+ *     street2: 'Suite #1',
+ *     city: 'Cincinnati',
+ *     state: 'OH',
+ *     zip: '45241'
+ *   }
+ * };
+ *
+ * var billingAddress = mask(contact, { billing_address: 1 });
+ * //=> {
+ * //=>   street: '567 Main St.',
+ * //=>   street2: 'Suite #1',
+ * //=>   city: 'Cincinnati',
+ * //=>   state: 'OH',
+ * //=>   zip: '45241'
+ * //=> }
+ * ```
+ *
+ * @name  mask
+ * @param  {Object} `obj` Original source object.
+ * @param  {Object} `mask` Mask object(s) to use to pick properties off the source.
+ * @return {Object} Masked object with only the properties specified in the mask
+ * @api public;
+ */
 
 module.exports = function mask () {
   var len = arguments.length, i = 1;
@@ -26,6 +65,14 @@ module.exports = function mask () {
   }
   return obj;
 }
+
+/**
+ * Pick off only the properties specified in the picks.
+ *
+ * @param  {Object} `src` Source object to pick properties off of.
+ * @param  {Object} `picks` Propreties to pick off.
+ * @return {Object} Resulting object after picks have been made.
+ */
 
 function pick (src, picks) {
   var keys = stringify(picks);

@@ -17,12 +17,10 @@ var maskObject = require('mask-object');
 ## API
 
 <!-- add a path or glob pattern for files with code comments to use for docs  -->
-{%= apidocs("index.js") %}
 
 ## Related projects
 
 <!-- add an array of related projects, then un-escape the helper -->
-{%= related([]) %}  
 
 ## Running tests
 

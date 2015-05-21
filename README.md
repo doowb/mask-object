@@ -11,13 +11,13 @@ $ npm i mask-object --save
 ## Usage
 
 ```js
-var maskObject = require('mask-object');
+var mask = require('mask-object');
 ```
 
 ## API
 
 <!-- add a path or glob pattern for files with code comments to use for docs  -->
-### [mask](index.js#L52)
+### [mask](index.js#L61)
 
 Return only properties specified in an object mask.
 
@@ -49,14 +49,23 @@ var contact = {
   }
 };
 
-var billingAddress = mask(contact, { billing_address: 1 });
+// pull the streets out
+console.log(mask(contact, {
+  address: {
+    street: 1,
+    street2:, 1
+  },
+  billing_address: {
+    street: 1,
+    street2: 1
+  }
+}));
+
 //=> {
-//=>   street: '567 Main St.',
-//=>   street2: 'Suite #1',
-//=>   city: 'Cincinnati',
-//=>   state: 'OH',
-//=>   zip: '45241'
+//=>   address: { street: '123 Main St.' },
+//=>   billing_address: { street: '567 Main St.', street2: 'Suite #1' }
 //=> }
+
 ```
 
 ## Related projects

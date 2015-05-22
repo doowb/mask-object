@@ -1,7 +1,7 @@
 {
   "name": "mask-object",
   "description": "Return a copy of an object after applying a key mask.",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "homepage": "https://github.com/doowb/mask-object",
   "author": {
     "name": "Brian Woodward",

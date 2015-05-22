@@ -33,16 +33,12 @@ var set = require('set-value');
  * };
  *
  * // pull the streets out
- * console.log(mask(contact, {
- *   address: {
- *     street: 1,
- *     street2:, 1
- *   },
- *   billing_address: {
- *     street: 1,
- *     street2: 1
- *   }
- * }));
+ * console.log(mask(contact, [
+ *   'address.street',
+ *   'address.street2',
+ *   'billing_address.street',
+ *   'billing_address.street2'
+ * ]));
  *
  * //=> {
  * //=>   address: { street: '123 Main St.' },

@@ -84,17 +84,14 @@ module.exports = function mask () {
  */
 
 function pick (src, picks) {
-  var keys = stringify(picks);
+  // var keys = stringify(picks);
+  var keys = picks;
   var len = keys.length, i = 0;
   var o = {};
   while (len--) {
     var key = keys[i++];
     var val = get(src, key);
-    var include = get(picks, key);
-    if (typeof include === 'object') {
-      continue;
-    }
-    if (val && include) {
+    if (val || typeof val !== 'undefined') {
       set(o, key, val);
     }
   }

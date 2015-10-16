@@ -35,5 +35,12 @@
     "get-value": "^1.1.4",
     "set-value": "^0.2.0",
     "stringify-keys": "^0.2.0"
-  }
+  },
+  "contributors": [
+    {
+      "name": "Brian Woodward",
+      "email": "brian.woodward@gmail.com",
+      "url": "https://github.com/doowb"
+    }
+  ]
 }
